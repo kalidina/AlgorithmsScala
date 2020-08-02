@@ -4,6 +4,15 @@ class LinkedList(var head:LinkedListNode){}
 
 object LinkedList {
 
+  def isExistsInLinkedList(node: LinkedListNode, targetValue: Int): Boolean = {
+    var tempNode = node
+    while ( tempNode != null ) {
+      if ( tempNode.value == targetValue ) return true
+      tempNode = tempNode.nextNode
+    }
+    return false
+  }
+
   def traverseLinkedList(node: LinkedListNode): Unit = {
     var tempNode = node
     while ( tempNode != null ) {
@@ -103,6 +112,9 @@ object LinkedList {
     println("Traverse the linked list")
     traverseLinkedList(myLinkedList.head)
 
+    println("Find if element exists in linked list")
+    println("Check is exists: " + isExistsInLinkedList(node5, 30))
+
     println("Print alternative items from linked list")
     printAlternates(myLinkedList.head)
 
@@ -120,5 +132,6 @@ object LinkedList {
     println("Reverse a linked last inplace")
     var newHead = reverseLinkedList(myLinkedList.head)
     traverseLinkedList(newHead)
+
   }
 }
